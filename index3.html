@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-if="dice()">
+            이제 나를 볼 수 있어요
+          </div>
+          <div v-else>
+            이제는 안보입니다
+          </div>
+    </div>
+   
+
+    <script>
+
+        new Vue({
+            el:'#app',
+            data:{
+                message:'안녕하세요',
+                msg:'11'
+            },
+           methods: {
+            dice() {
+               return true
+             },
+           },
+        });
+
+        
+    </script>
+</body>
+</html>

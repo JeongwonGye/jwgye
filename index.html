@@ -8,8 +8,12 @@
 </head>
 <body>
     <div id="app">
-        {{nextYear('안녕')}}
-        <input type="text">
+        {{person.age}}
+        <!-- <input :type="type" :value="text" @keyup="updateText"> -->
+        <input :type="type" v-model="text">
+        <button v-on:click="plus">plus</button>
+        <button v-on:click="minus">minus</button>
+        {{text}}
     </div>
     <script>
         new Vue({
@@ -18,13 +22,27 @@
                 person:{
                     name:'홍길동'
                     ,age:35
-                }
+                },
+                inputData:'hello',
+                type:'text',
+                text:'text',
             },
             methods:{
                 nextYear: function(greeting){
                     return greeting + '테스트';
                 },
-
+                alert(){
+                    alert('aa');
+                },
+                plus(){
+                    this.person.age++;
+                },
+                minus(){
+                    this.person.age--;
+                },
+                // updateText(event){
+                //     this.text = event.target.value;
+                // }
             }
         });
     </script>

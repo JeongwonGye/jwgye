@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span v-once>다시는 변경하지 않습니다: {{ msg }}</span><br>
+        <span>다시는 변경하지 않습니다: {{ msg }}</span><br>
+        <button @click='updateMsg'></button>
+        {{ message.split('').reverse().join('') }}
+        <br>
+        <my-component class="baz boo"></my-component>
+    </div>
+   
+
+    <script>
+        Vue.component('my-component', {
+            template: '<p class="foo bar">Hi</p>'
+        });
+
+        new Vue({
+            el:'#app',
+            data:{
+                message:'안녕하세요',
+                msg:'11'
+            },
+           methods: {
+            updateMsg() {
+               this.msg = '222'
+             },
+           },
+        });
+
+        
+    </script>
+</body>
+</html>
